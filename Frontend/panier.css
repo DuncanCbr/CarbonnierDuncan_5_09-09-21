@@ -1,0 +1,163 @@
+
+header
+{
+    flex: 1;
+    height: 10vh;
+}
+
+main
+{
+    flex: 10;
+    height: 80vh;
+}
+
+footer
+{
+    flex: 1;
+    height: 10vh;
+}
+
+.title-panier-page
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container-panier
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.teddy-container
+{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    background-color: rgb(228, 228, 228);
+    border-radius: 25px;
+    padding: 10px;
+}
+.img-teddy-panier
+{
+    width: 25%;
+    border-right: 1px solid #4a4a4a;
+}
+
+.imgTeddy
+{
+    width: 80%;
+    border-radius: 25px;
+}
+
+.title-article
+{
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.container-info-panier
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.prixTotal
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.suppr
+{
+    margin-top: 20px;
+    padding: 3px;
+}
+
+.container-confirmation
+{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+    cursor: pointer;
+}
+
+.confirmation
+{
+    padding: 4px;
+}
+
+
+.box-input
+{
+    width: 50%;
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+form
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width: 542px)
+{
+    .teddy-container
+    {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container-info-panier
+    {
+        width: 50%;
+        padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .quantity
+    {
+        width: 100%;
+    }
+
+    .responsive-name
+    {
+        width: 100%;
+    }
+
+    .price
+    {
+        width: 100%;
+    }
+
+    .suppr
+    {
+        margin-left: 30px;
+    }
+
+    .img-teddy-panier
+    {
+        width: 50%;
+        margin-left: 30px;
+        border: none;
+    }
+}

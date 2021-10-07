@@ -1,18 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="panier.css"/>
     <title>Panier</title>
-</head>
-<body>
-    
-
-
-
-
-
+  </head>
+  <body>
+    <header>
+      <!-- nav-bar -->
+      <div class="container-nav">
+        <div class="container-logo">
+          <a href="index.html"><p class="logo">OriTeddy</p></a>
+        </div>
+        <div class="link-accueil">
+          <a href="index.html" class="text-link marge-link">Nos Produits</a>
+          <a href="panier.html" class="text-link marge-link">
+            <div class="container-cart">
+              <i class="fas fa-cart-plus cart"></i>
+              <p class="compteur-cart">0</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </header>
+    <!-- produit panier -->
+    <main>
+      <h3 class="title-panier-page">Votre panier</h3>
+      <div class="container-panier" id="paniers"></div>
+      <div class="prixTotal">
+        <p id="totalPrice"></p>
+      </div>
+      <div class="container-confirmation">
+          <button class="confirmation" onclick="javascript:window.location.replace('confirmation.html')">Valider mon panier</button>
+      </div>
+      <!-- formulaire -->
+      <form action="" method="POST" id="commandeForm">
+        <!-- nom -->
+        <div class="box-input">
+          <label for="nom">Nom</label>
+          <input type="text" class="form-input" name="nom">
+          <p class="msg"></p>
+        </div>
+        <!-- prenom -->
+        <div class="box-input">
+          <label for="prenom">Prénom</label>
+          <input type="text" class="form-input" name="prenom">
+          <p class="msg"></p>
+        </div>
+        <!-- mail -->
+        <div class="box-input">
+          <label for="mail">Adresse Mail</label>
+          <input type="text" class="form-input" name="mail">
+          <p class="msg"></p>
+        </div>
+        <!-- adresse de facturation -->
+        <div class="box-input">
+          <label for="adresse">Adresse de facturation</label>
+          <input type="text" class="form-input" name="adresse">
+          <p class="msg"></p>
+        </div>
+        <!-- ville -->
+        <div class="box-input">
+          <label for="ville">Ville</label>
+          <input type="text" class="form-input" name="ville">
+          <p class="msg"></p>
+        </div>
+      </form>
+    </main>
+    <!-- footer -->
+    <footer>
+      <div class="container-logo-ft">
+          <p class="logo">OriTeddy</p>
+      </div>
+      <div class="container-media">
+          <a href=""><i class="fab fa-facebook style-icon"></i></a>
+          <a href=""><i class="fab fa-twitter style-icon"></i></a>
+          <a href=""><i class="fab fa-instagram style-icon"></i></a>
+          </div>
+  </footer>
+    <script src="app.js"></script>
     <script src="panier.js"></script>
-</body>
+  </body>
 </html>

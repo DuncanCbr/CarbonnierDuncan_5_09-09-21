@@ -1,0 +1,86 @@
+.body
+{
+    height: 2000px;
+}
+
+.thanku
+{
+    padding: 20px;
+}
+
+.commande
+{
+    padding: 20px;
+    font-size: 1.4rem;
+}
+.details
+{
+    background-color: rgb(240, 240, 240);
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.card-detail
+{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container-img-detail
+{
+    width: 50%;
+}
+
+.img
+{
+    width: 100%;
+    border-radius: 25px;
+}
+
+.detail-box
+{
+    justify-content: center;
+    align-items: center;
+}
+
+.name
+{
+    font-size: 1.2rem;
+}
+
+.choosen-quantity
+{
+    font-size: 0.9rem;
+}
+
+.choosen-color
+{
+    font-size: 0.9rem;
+}
+
+@media (max-width: 567px)
+{
+    .thanku
+    {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 387px)
+{
+    .thanku
+    {
+        font-size: 1.2rem;
+    }
+
+    .commande
+    {
+        font-size: 1rem;
+    }
+}
