@@ -1,21 +1,21 @@
-function showConfirmation()  {
+function ShowOrders()  {
+    let orderContact = JSON.parse(sessionStorage.getItem('contact'));
+    let orderId = JSON.parse(sessionStorage.getItem('orderId'));
 
-    
-    panier.forEach(teddy => {
-        detail.innerHTML += 
-            `
-                <div class="card-detail">
-                    <div class="container-img-detail">
-                        <img src="${teddy.imageUrl}" class="img"></img>
-                    </div>
-                    <div class="detail-box">
-                        <p class="name">${teddy.name}</p>
-                        <p class="choosen-color">${teddy.color}</p>
-                        <p class="choosen-quantity">quantité : ${teddy.quantity}</p>
-                    </div>
-                </div>
-            `
-    });
+
+
+    confirmation.innerHTML = 
+    `
+    <h1 class="thanku">Nous vous remercions ${orderContact.lastName} ${orderContact.firstName},<br>
+      votre commande N°${orderId} a bien été enregistrée !
+    </h1>
+    <div class="container-confirmation">
+      <div class="commande">
+        Vous receverez votre commande dans un délais de 5 jours à l'adresse : ${orderContact.address}.
+      </div>
+    </div>
+    `
 }
 
-showConfirmation();
+
+ShowOrders();

@@ -34,42 +34,44 @@
       <div class="prixTotal">
         <p id="totalPrice"></p>
       </div>
-      <div class="container-confirmation">
-          <button class="confirmation" onclick="javascript:window.location.replace('confirmation.html')">Valider mon panier</button>
-      </div>
-      <!-- formulaire -->
       <form action="" method="POST" id="commandeForm">
+        <h2 class="form-title">Formulaire de validation</h2>
         <!-- nom -->
         <div class="box-input">
-          <label for="nom">Nom</label>
-          <input type="text" class="form-input" name="nom">
+          <label for="lastName">Nom</label>
+          <input type="text" class="form-input" name="lastName">
           <p class="msg"></p>
         </div>
         <!-- prenom -->
         <div class="box-input">
-          <label for="prenom">Prénom</label>
-          <input type="text" class="form-input" name="prenom">
+          <label for="firstName">Prénom</label>
+          <input type="text" class="form-input" name="firstName">
           <p class="msg"></p>
         </div>
         <!-- mail -->
         <div class="box-input">
-          <label for="mail">Adresse Mail</label>
-          <input type="text" class="form-input" name="mail">
+          <label for="email">Adresse Mail</label>
+          <input type="text" class="form-input" name="email">
           <p class="msg"></p>
         </div>
         <!-- adresse de facturation -->
         <div class="box-input">
-          <label for="adresse">Adresse de facturation</label>
-          <input type="text" class="form-input" name="adresse">
+          <label for="address">Adresse de facturation</label>
+          <input type="text" class="form-input" name="address">
           <p class="msg"></p>
         </div>
         <!-- ville -->
         <div class="box-input">
-          <label for="ville">Ville</label>
-          <input type="text" class="form-input" name="ville">
+          <label for="city">Ville</label>
+          <input type="text" class="form-input" name="city">
           <p class="msg"></p>
         </div>
+        <!-- btn confirmation  -->
+        <div class="container-confirmation">
+            <button class="confirmation" type="submit">Valider mon panier</button>
+        </div>
       </form>
+      <!-- formulaire -->
     </main>
     <!-- footer -->
     <footer>

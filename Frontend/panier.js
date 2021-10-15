@@ -1,3 +1,7 @@
+const btnConfirm = document.querySelector('.confirmation');
+let contact = {};
+let products = [];
+let commande = {};
 
 
 function showPanier() {
@@ -30,7 +34,6 @@ function showPanier() {
 showPanier();
 
 function deleteTeddy(id) {
-    console.log(panier);
     panier.splice(id, 1);
     localStorage.setItem('panier',JSON.stringify(panier));
     location.reload();
@@ -54,9 +57,6 @@ function showPrice() {
 
 showPrice();
 
-function sendOrder () {
-    
-}
 
 
 // formulaire panier -------------------------------------------------
@@ -64,92 +64,124 @@ function sendOrder () {
 const form = document.querySelector('#commandeForm');
 
 
-console.log(form.nom);
-
 // zone de verification des inputs ----------------------------------
 
-form.nom.addEventListener('change', () => {
-    validNom(form.nom);
-});
-form.prenom.addEventListener('change', () => {
-    validPrenom(form.prenom);
-});
-form.mail.addEventListener('change', () => {
-    validMail(form.mail);
+form.lastName.addEventListener('change', () => {
+    validNom(form.lastName);
 });
 
-form.adresse.addEventListener('change', () => {
-    validAdresse(form.adresse);
+form.firstName.addEventListener('change', () => {
+    validPrenom(form.firstName);
 });
 
-form.ville.addEventListener('change', () => {
-    validVille(form.ville);
+form.email.addEventListener('change', () => {
+    validMail(form.email);
+});
+
+form.address.addEventListener('change', () => {
+    validAdresse(form.address);
+});
+
+form.city.addEventListener('change', () => {
+    validVille(form.city);
+});
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (validNom(form.lastName) && validPrenom(form.firstName) && validMail(form.email) && validAdresse(form.address) &&  validVille(form.city) == true){
+        contact = {
+            firstName: form.firstName.value,
+            lastName: form.lastName.value,
+            email: form.email.value,
+            address: form.address.value,
+            city: form.city.value,
+        }
+        panier.forEach(teddy => {
+            products.push(teddy._id);
+        });
+        commande = JSON.stringify({
+            contact,
+            products
+        });
+        sendOrders('http://localhost:3000/api/teddies/order', commande).then(response => 
+        {
+            sessionStorage.setItem('contact', JSON.stringify(response.contact));
+            sessionStorage.setItem('orderId', JSON.stringify(response.orderId));
+        })
+        localStorage.clear();
+        window.location='confirmation.html';
+    }
 });
 
 // zone des functions
 
-function validNom(inputNom) {
-    let nomRegex = new RegExp(/^[a-zA-Z]+$/i);
-    let testNom = nomRegex.test(inputNom.value);
-    console.log(inputNom.value);
-    let message = inputNom.nextElementSibling;
+function validNom(inputLastName) {
+    let lastNameRegex = new RegExp(/^[a-zA-Z]+$/i);
+    let testLastName = lastNameRegex.test(inputLastName.value);
+    let message = inputLastName.nextElementSibling;
 
-    if (testNom == false) {
+    if (testLastName == false) {
         message.innerHTML = 'Nom : champs non conforme';
+        return false;
     } else {
         message.innerHTML ='';
+        return true;
     }
 };
 
 
 
-function validPrenom(inputPrenom) {
-    let prenomRegex = new RegExp(/^[a-zA-Z]+$/i);
-    let testPrenom = prenomRegex.test(inputPrenom.value);
-    let message = inputPrenom.nextElementSibling;
+function validPrenom(inputFirstName) {
+    let firstNameRegex = new RegExp(/^[a-zA-Z]+$/i);
+    let testFirstName = firstNameRegex.test(inputFirstName.value);
+    let message = inputFirstName.nextElementSibling;
 
-    if (testPrenom == false) {
+    if (testFirstName == false) {
         message.innerHTML = 'Prénom : champs non conforme';
+        return false;
     } else {
         message.innerHTML ='';
+        return true;
     }
 };
 
-function validMail(inputMail) {
-    // changer la regex 
-    let mailRegex = new RegExp(/^[a-zA-Z]+$/i);
-    let testMail = mailRegex.test(inputMail.value);
-    let message = inputMail.nextElementSibling;
+function validMail(inputEmail) {
+    let emailRegex = new RegExp(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i);
+    let testEmail = emailRegex.test(inputEmail.value);
+    let message = inputEmail.nextElementSibling;
 
-    if (testMail == false) {
+    if (testEmail == false) {
         message.innerHTML = 'Mail : champs non conforme';
+        return false;
     } else {
         message.innerHTML ='';
+        return true;
     }
 };
-function validAdresse(inputAdresse) {
-    // changer la regex : espace et chiffre possible 
-    let adresseRegex = new RegExp(/^[a-zA-Z]+$/i);
-    let testAdresse = adresseRegex.test(inputAdresse.value);
-    let message = inputAdresse.nextElementSibling;
+function validAdresse(inputAddress) {
+    let addressRegex = new RegExp(/^[0-9]{1,3}(?:(?:[,. ]){1}[-a-zA-Zàâäéèêëïîôöùûüç]+)+/i);
+    let testAddress = addressRegex.test(inputAddress.value);
+    let message = inputAddress.nextElementSibling;
 
-    if (testAdresse == false) {
+    if (testAddress == false) {
         message.innerHTML = 'Adresse : champs non conforme';
+        return false;
     } else {
         message.innerHTML ='';
+        return true;
     }
 };
-function validVille(inputVille) {
-    // changer la regex : ( possibilité de caractère spéciaux à prendre en compte)
-    let villeRegex = new RegExp(/^[a-zA-Z]+$/i);
-    let testVille = villeRegex.test(inputVille.value);
-    let message = inputVille.nextElementSibling;
+function validVille(inputCity) {
+    let cityRegex = new RegExp(/^[a-zA-Z- ]+$/i);
+    let testCity = cityRegex.test(inputCity.value);
+    let message = inputCity.nextElementSibling;
 
-    if (inputVille == false) {
+    if (testCity == false) {
         message.innerHTML = 'Ville : champs non conforme';
+        return false;
     } else {
         message.innerHTML ='';
+        return true;
     }
 };
 
-// changer tout les noms pour les faire correspondre avec le back-end

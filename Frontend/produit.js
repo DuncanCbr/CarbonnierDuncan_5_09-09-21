@@ -54,7 +54,7 @@ function showTeddy(teddy) {
                             </span>
                         </div>
                         </div>
-                        <p class="price"> Prix Unitaire : ${teddy.price}€</p>
+                        <p class="price"> Prix Unitaire : ${teddy.price / 100}€</p>
                     <a href="panier.html" onclick="stockPanier()"><button class="add-panier">Ajouter au panier</button>
                 </div>
             </div>
@@ -83,7 +83,7 @@ function stockPanier() {
         name: currentTeddy.name,
         color: couleur.value,
         quantity:  nombreTeddy.textContent,
-        price: currentTeddy.price
+        price: currentTeddy.price / 100,
     }
     let panier = JSON.parse(localStorage.getItem('panier'));
     if (panier == null){

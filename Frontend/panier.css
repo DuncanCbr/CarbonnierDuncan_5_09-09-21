@@ -9,6 +9,10 @@ main
 {
     flex: 10;
     height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 footer
@@ -76,6 +80,10 @@ footer
 
 .prixTotal
 {
+    background-color: rgb(228, 228, 228);
+    border-radius: 25px;
+    width: 10%;
+    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,11 +111,18 @@ footer
 
 .box-input
 {
-    width: 50%;
-    background-color: aquamarine;
+    width: 60%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 10px;
+}
+
+.form-input
+{
+    width: 100%;
+    height: 30px;
 }
 
 form
@@ -116,6 +131,22 @@ form
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+label
+{
+    font-size: 1.3rem;
+    font-weight: 500;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding-bottom: 10px;
+}
+
+.form-title
+{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 @media (max-width: 542px)
 {
