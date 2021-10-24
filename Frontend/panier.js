@@ -105,11 +105,10 @@ form.addEventListener('submit', (e) => {
         });
         sendOrders('http://localhost:3000/api/teddies/order', commande).then(response => 
         {
-            sessionStorage.setItem('contact', JSON.stringify(response.contact));
-            sessionStorage.setItem('orderId', JSON.stringify(response.orderId));
+            console.log(response);
+            sessionStorage.setItem('order', JSON.stringify(response))
+            window.location='confirmation.html';
         })
-        localStorage.clear();
-        window.location='confirmation.html';
     }
 });
 
