@@ -121,6 +121,7 @@ function validNom(inputLastName) {
 
     if (testLastName == false) {
         message.innerHTML = 'Nom : champs non conforme';
+        message.classList.add('wrong');
         return false;
     } else {
         message.innerHTML ='';
@@ -137,6 +138,7 @@ function validPrenom(inputFirstName) {
 
     if (testFirstName == false) {
         message.innerHTML = 'Prénom : champs non conforme';
+        message.classList.add('wrong');
         return false;
     } else {
         message.innerHTML ='';
@@ -151,6 +153,7 @@ function validMail(inputEmail) {
 
     if (testEmail == false) {
         message.innerHTML = 'Mail : champs non conforme';
+        message.classList.add('wrong');
         return false;
     } else {
         message.innerHTML ='';
@@ -164,6 +167,7 @@ function validAdresse(inputAddress) {
 
     if (testAddress == false) {
         message.innerHTML = 'Adresse : champs non conforme';
+        message.classList.add('wrong');
         return false;
     } else {
         message.innerHTML ='';
@@ -177,6 +181,7 @@ function validVille(inputCity) {
 
     if (testCity == false) {
         message.innerHTML = 'Ville : champs non conforme';
+        message.classList.add('wrong');
         return false;
     } else {
         message.innerHTML ='';
